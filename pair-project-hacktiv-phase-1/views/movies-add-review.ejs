@@ -14,8 +14,15 @@
 </head>
 
 <body>
-  <%- include('./partials/navbar.js')%>
-  <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: red;">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <a class="nav-item navbar-brand" href="/">
+            <img src="https://www.flaticon.com/premium-icon/icons/svg/2504/2504929.svg" width="30" height="30"
+              class="d-inline-block align-top" alt="">
+            Netflux
+        </a>
+    </ul>
+  </nav>  <div class="container">
     <br>
     <h1>Write your review for <a href="/movies/<%= movie.dataValues.id %>"><%= movie.dataValues.title %></a></h1><br>
     <form method="POST" action="">
@@ -38,7 +45,7 @@
         <input type="text" class="form-control" name="reviewTitle" placeholder="Brief description">
       </div>
       <div class="form-group">
-        <textarea class="form-control" rows="3" name="description"
+        <textarea style="height: 250px;" class="form-control" rows="3" name="description"
           placeholder="What do you think about the movie?"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>

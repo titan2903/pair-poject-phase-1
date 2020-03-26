@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col" style="text-align: center">
-            <a style="font-size: 20px; color:#153e5c;" href='/movies/<%= movie.id %>'><%= movie.title %>
-                (<%= movie.dataValues.year %>)</a><br>
+            <a style="font-size: 20px; color: white;" href='/movies/<%= movie.id %>'><%= movie.title %>
+                (<%= movie.dataValues.year %>)</a><br> <br>
             <img id="poster" src="<%= movie.poster %>"><br>
             <p style="font-size: 40px;"> <%= movie.dataValues.averageRating.toFixed(1) %>/10 </p>
 

@@ -77,28 +77,10 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-sm bg-danger">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="navbar-brand" href="/">
-          <img src="https://www.flaticon.com/premium-icon/icons/svg/2504/2504929.svg" width="30" height="30"
-            class="d-inline-block align-top" alt="">
-          Netflux ┃
-        </a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-item nav-link" href="/register"> Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-item nav-link" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-item nav-link" href="/logout">Logout</a>
-      </li>
-    </ul>
-  </nav>
+  <%- include('partials/navbar.ejs') %>
+
   <br>
-  <form method="POST" action="/register">
+  <form style="padding-top: 50px;" method="POST" action="/register">
     <div class="container">
       <center>
 
@@ -114,13 +96,13 @@
         <hr>
       </center>
 
-      <label for="username"><b>username</b></label>
+      <label for="username"><b>Username</b></label>
       <input type="text" placeholder="Enter username" name="username" required>
 
       <label for="pwd"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="password" required>
 
-      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+      <p>By creating an account you agree to our <a href="term">Terms & Privacy</a>.</p>
 
       <button type="submit" class="registerbtn">Register</button>
     </div>
