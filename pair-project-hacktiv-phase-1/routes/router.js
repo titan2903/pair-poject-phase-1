@@ -27,7 +27,7 @@ routes.post('/login', controllerAuth.login)
 
 routes.get('/logout', (req, res) => {
   req.session.destroy((err) => {
-    console.log('islogout')
+    // console.log('islogout')
     res.redirect('/movies')
   })
 })
