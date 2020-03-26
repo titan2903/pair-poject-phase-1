@@ -16,6 +16,7 @@
 
 <body>
   <%- include('./partials/navbar.js')%>
+  <br><br>
   <div class="container">
     <div class="row">
       <div class="col">
@@ -37,16 +38,18 @@
             <option value="9">9</option>
             <option value="10">10</option>
           </select>
+          <br><br>
           <div class="form-group">
             <input type="text" class="form-control" name="reviewTitle" placeholder="Brief description"
               value="<%= review.dataValues.reviewTitle %>">
           </div>
           <div class="form-group">
-            <textarea class="form-control" rows="3" name="description" placeholder="What do you think about the movie?">
-                    <%= review.dataValues.description %>
-                  </textarea>
+            <textarea class="form-control" rows="6" name="description" placeholder="What do you think about the movie?"><%= review.dataValues.description %>
+            </textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <center>
+            <button type="submit" class="btn btn-outline-success">Submit</button>
+          </center>
         </form>
       </div>
 
@@ -67,5 +70,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   </script>
 </body>
+<%- include('../views/partials/style.ejs')%>
 
 </html>
