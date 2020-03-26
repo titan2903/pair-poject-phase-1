@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="/public/stylesheets/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Movies</title>
+</head>
+
+<body>
+  <%- include('./partials/navbar.js')%>
+  <br>
+  <%- include('./partials/movie-info.ejs')%>
+  <br>
+  <% if(!loggedUserReview) { %>
+  <div style="text-align: center; margin-bottom: 10px;">
+    <button style="margin: auto;" type="button" class="btn btn-primary"
+      onclick="window.location.href='/movies/<%= movie.dataValues.id %>/add-review'">Review This Movie</button>
+  </div>
+  <% } %>
+  <% if(loggedUserReview) { %>
+  <div class="card">
+    <h5 class="card-header"><%= loggedUserReview.dataValues.rating %>/10
+      <% for(let i = 0; i < loggedUserReview.dataValues.rating; i++) { %>
+      <img src="https://www.flaticon.com/premium-icon/icons/svg/2217/2217684.svg" style="width: 25px;">
+      <% } %>
+    </h5>
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= loggedUserReview.dataValues.reviewTitle %><br>
+        Your Review - <%= getFormattedDate(loggedUserReview.dataValues.updatedAt) %>
+      </h5>
+      <p class="card-text"><%= loggedUserReview.dataValues.description %></p>
+      <button type="button" class="btn btn-info"
+        onclick="window.location.href='/movies/<%= movie.dataValues.id %>/edit-review'">Edit</button>
+      <button type="button" class="btn btn-danger"
+        onclick="window.location.href='/reviews/<%= loggedUserReview.dataValues.id %>/delete'">Delete</button>
+    </div>
+    <% movie.dataValues.Reviews.forEach(review => { %>
+    <% if(review.dataValues.id !== loggedUserReview.dataValues.id) { %>
+    <div class="card">
+      <h5 class="card-header"><%= review.dataValues.rating %>/5
+        <% for(let i = 0; i < review.dataValues.rating; i++) { %>
+        <img src="http://icons.iconarchive.com/icons/google/noto-emoji-food-drink/256/32360-potato-icon.png"
+          style="width: 25px;">
+        <% } %></h5>
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= review.dataValues.reviewTitle %><br>
+          <%= review.dataValues.User.username%> - <%= getFormattedDate(review.dataValues.updatedAt) %>
+        </h5>
+        <p class="card-text"><%= review.dataValues.description %></p>
+      </div>
+    </div>
+    <% } %>
+    <% }) %>
+    <% } else { %>
+    <% movie.dataValues.Reviews.forEach(review => { %>
+    <div class="card">
+      <h5 class="card-header"><%= review.dataValues.rating %>/5
+        <% for(let i = 0; i < review.dataValues.rating; i++) { %>
+        <img src="http://icons.iconarchive.com/icons/google/noto-emoji-food-drink/256/32360-potato-icon.png"
+          style="width: 25px;">
+        <% } %></h5>
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= review.dataValues.reviewTitle %><br>
+          <%= review.dataValues.User.username%> - <%= getFormattedDate(review.dataValues.updatedAt) %>
+        </h5>
+        <p class="card-text"><%= review.dataValues.description %></p>
+      </div>
+    </div>
+    <% }) %>
+    <% } %>
+
+    <%- include('../views/partials/style.ejs')%>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>
