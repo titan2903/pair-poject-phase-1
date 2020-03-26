@@ -46,7 +46,6 @@ module.exports = {
           }
           arr.push(objMovie)
         })
-        //  console.log(arr)
         return queryInterface.bulkInsert('Movies', arr)
       })
       .catch(console.log)

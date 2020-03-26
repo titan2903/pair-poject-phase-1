@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     MovieId: DataTypes.INTEGER
   }, { sequelize, modelName: 'Review' });
   Review.associate = function (models) {
-    // associations can be defined here
+    //! associations can be defined here
     Review.belongsTo(models.Movie)
     Review.belongsTo(models.User)
   };

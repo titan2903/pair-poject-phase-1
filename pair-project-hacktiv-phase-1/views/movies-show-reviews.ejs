@@ -46,7 +46,7 @@
     <% movie.dataValues.Reviews.forEach(review => { %>
     <% if(review.dataValues.id !== loggedUserReview.dataValues.id) { %>
     <div class="card">
-      <h5 class="card-header"><%= review.dataValues.rating %>/5
+      <h5 class="card-header"><%= review.dataValues.rating %>/10
         <% for(let i = 0; i < review.dataValues.rating; i++) { %>
         <img src="http://icons.iconarchive.com/icons/google/noto-emoji-food-drink/256/32360-potato-icon.png"
           style="width: 25px;">
@@ -64,7 +64,7 @@
     <% } else { %>
     <% movie.dataValues.Reviews.forEach(review => { %>
     <div class="card">
-      <h5 class="card-header"><%= review.dataValues.rating %>/5
+      <h5 class="card-header"><%= review.dataValues.rating %>/10
         <% for(let i = 0; i < review.dataValues.rating; i++) { %>
         <img src="http://icons.iconarchive.com/icons/google/noto-emoji-food-drink/256/32360-potato-icon.png"
           style="width: 25px;">

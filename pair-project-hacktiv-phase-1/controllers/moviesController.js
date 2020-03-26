@@ -48,7 +48,6 @@ class MovieController {
         return movie.getAverageRating()
       })
       .then(averageRating => {
-        // console.log('ini ====>', req.session)
         movie.setDataValue('averageRating', averageRating)
         return Review
           .findOne({
@@ -63,7 +62,6 @@ class MovieController {
       })
       .catch(err => {
         res.send(err.message)
-        // res.redirect(`/movies/${req.params.id}?err=${err.message}`)
       })
   }
 

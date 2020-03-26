@@ -34,7 +34,6 @@ class ReviewController {
     Review
       .findByPk(req.params.id)
       .then(review => {
-        // console.log(review)
         movieId = review.dataValues.MovieId
         return Review
           .destroy({

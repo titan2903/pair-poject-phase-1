@@ -6,7 +6,7 @@ const ReviewController = require('../controllers/ReviewController')
 //!middleware
 const isLogin = (req, res, next) => {
   if (!req.session.user) {
-    res.redirect(`/login/?error=bukan_user`)
+    res.redirect(`/login`)
   } else {
     next()
   }
